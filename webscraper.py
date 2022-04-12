@@ -21,6 +21,12 @@ for URL in URLS :
 
 
     brand = html.find(class_ = 'name').text.strip()
+    
+    model_check = html.find(class_ = 'h4 title fw-light mb-3')
+
+    if str(type(model_check)) == "<class 'NoneType'>" :
+        print(URL + " is invalid. Please check it")
+        continue
 
     model = html.find(class_ = 'h4 title fw-light mb-3').text.strip()
 
